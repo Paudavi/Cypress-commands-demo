@@ -28,7 +28,7 @@
 			"@/*": ["./src/*"],
 			"@ui/*": ["./src/components/*"]
 		},
-		"types": ["react-dom/canary"]
+		"types": ["react", "react-dom", "node"]
 	},
 
 	"include": [
@@ -36,8 +36,7 @@
 		"src/**/*.ts",
 		"src/**/*.tsx",
 		".next/types/**/*.ts",
-		"*.ts",
-		"__tests__/**/*"
+		"*.ts"
 	],
 	"exclude": ["node_modules"]
 }

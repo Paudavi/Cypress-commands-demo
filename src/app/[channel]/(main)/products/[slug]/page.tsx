@@ -190,7 +190,7 @@ export default async function Page(props: {
 				</div>
 				<div className="flex flex-col pt-6 sm:col-span-1 sm:px-6 sm:pt-0 lg:col-span-3 lg:pt-16">
 					<div>
-						<h1 className="mb-4 flex-auto text-3xl font-medium tracking-tight text-neutral-900">
+						<h1 data-testid="ProductElement_Name" className="mb-4 flex-auto text-3xl font-medium tracking-tight text-neutral-900">
 							{product?.name}
 						</h1>
 						<p className="mb-8 text-sm " data-testid="ProductElement_Price">
@@ -207,7 +207,7 @@ export default async function Page(props: {
 						)}
 						<AvailabilityMessage isAvailable={isAvailable} />
 						<div className="mt-8">
-							<AddButton disabled={!selectedVariantID || !selectedVariant?.quantityAvailable} />
+							<AddButton disabled={!selectedVariantID || !selectedVariant?.quantityAvailable} data-testid='AddToCartButton'/>
 						</div>
 						{description && (
 							<div className="mt-8 space-y-6 text-sm text-neutral-500">

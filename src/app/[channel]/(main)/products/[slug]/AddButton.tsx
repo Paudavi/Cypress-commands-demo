@@ -8,6 +8,7 @@ export function AddButton({ disabled }: { disabled?: boolean }) {
 
 	return (
 		<button
+			data-testid = "AddToCartButton"
 			type="submit"
 			aria-disabled={isButtonDisabled}
 			aria-busy={pending}
