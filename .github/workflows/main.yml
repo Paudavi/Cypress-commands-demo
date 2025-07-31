@@ -1,3 +1,11 @@
+name: Run Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -16,6 +24,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build app
+        run: pnpm run build
 
       - name: Start app server
         run: pnpm run dev &
