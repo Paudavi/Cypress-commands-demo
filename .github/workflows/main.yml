@@ -13,13 +13,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: package.json
-          cache: 'pnpm'
+          node-version: 18
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: 'latest'
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
