@@ -1,38 +1,32 @@
-name: Run Cypress Tests
+name: Cypress E2E
 
 on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: "pnpm"
 
       - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      - name: Build app
-        run: pnpm run build
-
-      - name: Start app server
-        run: pnpm run dev &
-
-      - name: Wait for server to be ready
-        run: npx wait-on http://localhost:3000
+      - name: Run GraphQL codegen
+        run: pnpm graphql-codegen
 
       - name: Run Cypress tests
         run: pnpm run cypress:run
